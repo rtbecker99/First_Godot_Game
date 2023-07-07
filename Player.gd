@@ -11,7 +11,7 @@ var screen_size # size of the game window
 func _ready():
 	screen_size = get_viewport_rect().size
 	hide()
-	start(Vector2(240,360))
+#	start(Vector2(240,200))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +35,7 @@ func _process(delta):
 		$AnimatedSprite.stop()
 	
 	position += velocity * delta
-	# clamp prevents us from moving off the screen
+	# clamp prevents use from moving off 
 	position.x = clamp(position.x, 0, screen_size.x)
 	position.y = clamp(position.y, 0, screen_size.y)
 	
