@@ -3,7 +3,7 @@ extends Area2D
 signal hit
 
 # export means that it will show up in the inspector
-export var speed = 400 # Speed in pixels / sec
+@export var speed = 400 # Speed in pixels / sec
 var screen_size # size of the game window
 
 
@@ -30,9 +30,9 @@ func _process(delta):
 		# normalizing velocity prevents diagonal movements
 		# from being faster
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite.play()
+		$AnimatedSprite2D.play()
 	else:
-		$AnimatedSprite.stop()
+		$AnimatedSprite2D.stop()
 	
 	position += velocity * delta
 	# clamp prevents use from moving off 
@@ -40,12 +40,12 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 	
 	if velocity.x != 0:
-		$AnimatedSprite.animation = "walk"
-		$AnimatedSprite.flip_v = false
-		$AnimatedSprite.flip_h = velocity.x < 0
+		$AnimatedSprite2D.animation = "walk"
+		$AnimatedSprite2D.flip_v = false
+		$AnimatedSprite2D.flip_h = velocity.x < 0
 	elif velocity.y != 0:
-		$AnimatedSprite.animation = "up"
-		$AnimatedSprite.flip_v = velocity.y > 0
+		$AnimatedSprite2D.animation = "up"
+		$AnimatedSprite2D.flip_v = velocity.y > 0
 
 
 func _on_Player_body_entered(body):

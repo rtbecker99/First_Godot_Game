@@ -18,6 +18,12 @@
 # - Visual Studio specific
 # - OS specific
 
+#################################
+### Godot 4+ specific ignores ###
+#################################
+
+.godot/
+
 ###########################
 ### Build configuration ###
 ###########################
