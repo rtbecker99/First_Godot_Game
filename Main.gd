@@ -47,9 +47,6 @@ func _on_ScoreTimer_timeout():
 	score += 1
 	$HUD.update_score(score)
 
-func test(p: PathFollow2D):
-	p.offset = 0
-	p.akjdshkjs = "a"
 
 func _on_MobTimer_timeout():
 	# Create a new instance of the Mob scene
@@ -58,8 +55,7 @@ func _on_MobTimer_timeout():
 	# choose a random location on the Path2D
 	var mob_spawn_location: PathFollow2D = get_node("MobPath/MobSpawnLocation")
 	# offset is the distance along the path, looks like it loops
-	#mob_spawn_location.offset = randi()
-	mob_spawn_location.akjdshkjs = randi()
+	mob_spawn_location.progress = randi()
 	
 	# Set the mob's direction perpendicular to the path direction
 	var direction = mob_spawn_location.rotation + PI / 2
